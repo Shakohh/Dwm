@@ -13,11 +13,11 @@ static const char col_gray1[]       = "#282C34";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_purple[]      = "#C678DD";
+static const char col_blue[]        = "#61AFEF";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_purple, col_purple    },
+	[SchemeSel]  = { col_gray4, col_blue,  col_blue  },
 };
 
 /* tagging */
@@ -60,23 +60,25 @@ static const Layout layouts[] = {
 static char rofimon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
 static const char *termcmd[]  = { "kitty", "-1", NULL };
+// static const char *screenshotcmd[]  = { "maim", "-s", "|", "xclip", "-selection", "clipboard", "-t", "image/png", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_space,   spawn,          {.v = roficmd } },
+	{ MODKEY,                       XK_space,  spawn,          {.v = roficmd } },
 	{ MODKEY,             			XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_s, 	   spawn,          SHCMD("maim -s | xclip -selection clipboard -t image/png") /* {.v = screenshotcmd */ },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_f,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY,                       XK_a,      setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_s,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY, 			            XK_w,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_p,  	   setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_p,  	   togglefloating, {0} },
