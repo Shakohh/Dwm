@@ -1,2 +1,2 @@
 # NOTRE-DWM
-NOTRE DWM
+![Screenshot](./dwm.png)
