@@ -2,12 +2,12 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const int gappx     			= 5;        /* gaps between windows */
+static const int gappx     	    = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "lexend:size=10" };
+static const char dmenufont[]       = "lexend:size=10";
 
 static const char col_gray1[]       = "#282C34";
 static const char col_gray2[]       = "#444444";
@@ -65,7 +65,7 @@ static const char *termcmd[]  = { "kitty", "-1", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = roficmd } },
-	{ MODKEY,             			XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_s, 	   spawn,          SHCMD("maim -s | xclip -selection clipboard -t image/png") /* {.v = screenshotcmd */ },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -76,7 +76,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_s,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY, 			            XK_w,      killclient,     {0} },
+	{ MODKEY, 			XK_w,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
