@@ -2,17 +2,15 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const int gappx     	    = 5;        /* gaps between windows */
+static const int gappx     	    	= 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "lexend:size=10" };
-static const char dmenufont[]       = "lexend:size=10";
-
+static const char *fonts[]          = { "Lexend:size=10:antialias=true:autohint=true", "SymbolsNerdFont:size=10:antialias=true:autohint=true" };
 static const char col_gray1[]       = "#282C34";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
+static const char col_gray2[]       = "#2C2E34";
+static const char col_gray3[]       = "#ABB2BF";
+static const char col_gray4[]       = "#FFFFFF";
 static const char col_blue[]        = "#61AFEF";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -21,7 +19,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -29,14 +27,14 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ NULL,     NULL,       NULL,       0,            0,           -1 },
+	{ NULL,       NULL,       NULL,       0,            0,           -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const float mfact     	= 0.5;  /* factor of master area size [0.05..0.95] */
+static const int nmaster     	= 1;    /* number of clients in master area */
+static const int resizehints 	= 1;    /* 1 means respect size hints in tiled resizals */
+static const int lockfullscreen = 1; 	/* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -57,26 +55,25 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static char rofimon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+static char rofimon[2] = "0"; /* component of roficmd, manipulated in spawn() */
 static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
 static const char *termcmd[]  = { "kitty", "-1", NULL };
-// static const char *screenshotcmd[]  = { "maim", "-s", "|", "xclip", "-selection", "clipboard", "-t", "image/png", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = roficmd } },
-	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,             			XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_s, 	   spawn,          SHCMD("maim -s | xclip -selection clipboard -t image/png") /* {.v = screenshotcmd */ },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_f,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_d,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_f,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_a,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_s,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY, 			XK_w,      killclient,     {0} },
+	{ MODKEY, 						XK_w,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
