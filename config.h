@@ -6,7 +6,7 @@ static const int gappx     	    	= 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Lexend:size=10:antialias=true:autohint=true", "SymbolsNerdFont:size=10:antialias=true:autohint=true" };
+static const char *fonts[]          = { "Lexend:size=10:antialias=true:autohint=true", "SymbolsNerdFont:size=12:antialias=true:autohint=true" };
 static const char col_gray1[]       = "#282C34";
 static const char col_gray2[]       = "#2C2E34";
 static const char col_gray3[]       = "#ABB2BF";
@@ -19,7 +19,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -38,9 +38,9 @@ static const int lockfullscreen = 1; 	/* 1 will force focus on the fullscreen wi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "﬿",      tile },    /* first entry is default */
+	{ "",      NULL },    /* no layout function means floating behavior */
+	{ "",      monocle },
 };
 
 /* key definitions */
