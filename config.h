@@ -2,20 +2,25 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const int gappx     	    	= 5;        /* gaps between windows */
+static const int gappx     	    = 13;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Lexend:size=11:antialias=true:autohint=true" };
-static const char col_gray1[]       = "#282C34";
-static const char col_gray2[]       = "#2C2E34";
-static const char col_gray3[]       = "#ABB2BF";
-static const char col_gray4[]       = "#FFFFFF";
-static const char col_blue[]        = "#61AFEF";
+static const char *fonts[]          = { "Lexend:size=10:antialias=true:autohint=true" };
+static const char col_bg[]       	= "#2a2f38";
+static const char col_bgi[]         = "#3d4455";
+static const char col_black[]       = "#181a1c";
+static const char col_white[]       = "#e1e3e4";
+static const char col_red[]         = "#ff6578";
+static const char col_blue[]        = "#72cce8";
+static const char col_green[]       = "#9dd274";
+static const char col_cyan[]        = "#f69c5e";
+static const char col_magenta[]     = "#ba9cf3";
+static const char col_yellow[]      = "#eacb64";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_blue,  col_blue  },
+	[SchemeNorm] = { col_white, col_bgi, col_bgi },
+	[SchemeSel]  = { col_white, col_bg,  col_red  },
 };
 
 /* tagging */
